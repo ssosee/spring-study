@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <form th:object="${form}" method="post">
+        <input type="text" th:field="*{name}">
+        <input type="text" th:field="*{age}">
+        <button type="submit">제출</button>
+        <div th:text="*{name}"></div>
+        <div th:text="*{age}"></div>
+    </form>
+</body>
+</html>
