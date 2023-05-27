@@ -21,6 +21,8 @@ public class FirstFilter implements Filter {
             HttpServletResponse servletResponse = (HttpServletResponse) response;
             servletResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             servletResponse.getWriter().println(e.getMessage());
+        } finally {
+            System.out.println(request.getDispatcherType());
         }
     }
 }
