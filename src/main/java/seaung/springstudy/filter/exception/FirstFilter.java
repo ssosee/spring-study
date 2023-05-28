@@ -3,6 +3,7 @@ package seaung.springstudy.filter.exception;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -20,6 +21,7 @@ public class FirstFilter implements Filter {
             System.out.println(e.getMessage()+" FirstFilter 가 예외 처리한다.");
             HttpServletResponse servletResponse = (HttpServletResponse) response;
             servletResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            servletResponse.setContentType(MediaType.ALL_VALUE);
             servletResponse.getWriter().println(e.getMessage());
         } finally {
             System.out.println(request.getDispatcherType());

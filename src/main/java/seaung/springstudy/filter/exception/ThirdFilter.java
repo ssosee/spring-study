@@ -11,7 +11,7 @@ import java.io.IOException;
 public class ThirdFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        // throw new RuntimeException("ThirdFilter error!!");
+        //throw new RuntimeException("ThirdFilter error!!");
         System.out.println("ThirdFilter 호출");
         chain.doFilter(request, response);
         System.out.println("ThirdFilter 종료");

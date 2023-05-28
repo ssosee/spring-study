@@ -2,15 +2,17 @@ package seaung.springstudy.config;
 
 import jakarta.servlet.DispatcherType;
 import jakarta.servlet.Filter;
-import jakarta.servlet.FilterRegistration;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import seaung.springstudy.controller.HelloDataHandlerExceptionResolver;
+import seaung.springstudy.converter.LocalDateTime2StringConverter;
+import seaung.springstudy.converter.String2LocalDateTimeConverter;
 import seaung.springstudy.filter.CustomFilter;
 import seaung.springstudy.interceptor.LogInterceptor;
 import seaung.springstudy.resolver.HelloArgumentResolver;
@@ -45,5 +47,11 @@ public class WebConfig implements WebMvcConfigurer {
         filterRegistrationBean.setDispatcherTypes(DispatcherType.REQUEST, DispatcherType.ERROR);
 
         return filterRegistrationBean;
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(new String2LocalDateTimeConverter());
+        registry.addConverter(new LocalDateTime2StringConverter());
     }
 }
