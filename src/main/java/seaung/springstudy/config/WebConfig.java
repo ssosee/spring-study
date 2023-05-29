@@ -11,7 +11,9 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import seaung.springstudy.controller.HelloDataHandlerExceptionResolver;
+import seaung.springstudy.converter.HelloData2StringConverter;
 import seaung.springstudy.converter.LocalDateTime2StringConverter;
+import seaung.springstudy.converter.String2HelloDataConverter;
 import seaung.springstudy.converter.String2LocalDateTimeConverter;
 import seaung.springstudy.filter.CustomFilter;
 import seaung.springstudy.interceptor.LogInterceptor;
@@ -53,5 +55,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(new String2LocalDateTimeConverter());
         registry.addConverter(new LocalDateTime2StringConverter());
+        registry.addConverter(new HelloData2StringConverter());
+        registry.addConverter(new String2HelloDataConverter());
     }
 }

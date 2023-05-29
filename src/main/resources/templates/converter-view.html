@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <li>${number}: <span th:text="${number}"></span></li>
+    <li>${number}: <span th:text="${{number}}"></span></li>
+    <li>${helloData}: <span th:text="${helloData}"></span></li>
+    <li>${{helloData}}: <span th:text="${{helloData.age}}"></span></li>
+    <li>${{helloData}}: <span th:text="${{helloData.name}}"></span></li>
+</body>
+</html>
