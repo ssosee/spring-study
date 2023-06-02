@@ -2,7 +2,6 @@ package seaung.springstudy.config;
 
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import seaung.springstudy.repository.MemberRepository;
 import seaung.springstudy.repository.PencilRepository;
 import seaung.springstudy.service.MemoService;
@@ -10,7 +9,7 @@ import seaung.springstudy.service.MemoServiceImpl;
 import seaung.springstudy.service.UserService;
 import seaung.springstudy.service.UserServiceImpl;
 
-@Configuration
+// @Configuration
 public class ApplicationConfig {
     @Bean
     public MemberRepository memberRepository() {

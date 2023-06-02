@@ -1,6 +1,17 @@
 package seaung.springstudy.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import seaung.springstudy.policy.DiscountPolicy;
+
+// @Component
 public class OrderService {
+
+    private final DiscountPolicy discountPolicy;
+
+    @Autowired
+    public OrderService(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
 
     private int price;
 
